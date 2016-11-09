@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c1db0d60300c486cb636fbc837d97636" Name="Diagram1">
+        <EntityTypeShape EntityType="SQL_New.SchoolModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SQL_New.SchoolModel.Assignments" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="SQL_New.SchoolModel.Courses" Width="1.5" PointX="3" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SQL_New.SchoolModel.Students" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SQL_New.SchoolModel.Teachers" Width="1.5" PointX="0.75" PointY="2.25" IsExpanded="true" />
+        <AssociationConnector Association="SQL_New.SchoolModel.FK_dbo_Assignments_dbo_Courses_CoursesID" ManuallyRouted="false" />
+        <AssociationConnector Association="SQL_New.SchoolModel.FK_dbo_Courses_dbo_Teachers_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="SQL_New.SchoolModel.StudentsCourses" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
