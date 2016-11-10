@@ -130,29 +130,12 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
-    <Content Include="Diagram Design\DiagramFile.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DiagramFile.edmx</DependentUpon>
-      <LastGenOutput>DiagramFile.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Diagram Design\DiagramFile.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DiagramFile.edmx</DependentUpon>
-      <LastGenOutput>DiagramFile.cs</LastGenOutput>
-    </Content>
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="ClassDiagram1.cd" />
-    <EntityDeploy Include="Diagram Design\DiagramFile.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DiagramFile.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Diagram Design\DiagramFile.edmx.diagram">
-      <DependentUpon>DiagramFile.edmx</DependentUpon>
-    </Content>
     <None Include="Scripts\jquery-1.10.2-vsdoc.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -189,36 +172,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\StudentsController.cs" />
     <Compile Include="Controllers\TeachersController.cs" />
-    <Compile Include="Diagram Design\Assignments.cs">
-      <DependentUpon>DiagramFile.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Diagram Design\Courses.cs">
-      <DependentUpon>DiagramFile.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Diagram Design\C__MigrationHistory.cs">
-      <DependentUpon>DiagramFile.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Diagram Design\DiagramFile.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DiagramFile.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Diagram Design\DiagramFile.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DiagramFile.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Diagram Design\DiagramFile.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DiagramFile.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Diagram Design\Students.cs">
-      <DependentUpon>DiagramFile.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Diagram Design\Teachers.cs">
-      <DependentUpon>DiagramFile.tt</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

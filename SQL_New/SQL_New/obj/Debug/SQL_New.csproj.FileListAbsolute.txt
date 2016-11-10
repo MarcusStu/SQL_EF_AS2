@@ -142,4 +142,3 @@ C:\Users\deltagare\Documents\Visual Studio 2015\Projects\GitHub\SQL_EF_AS2\SQL_N
 C:\Users\deltagare\Documents\Visual Studio 2015\Projects\GitHub\SQL_EF_AS2\SQL_New\SQL_New\bin\System.Web.Mvc.xml
 C:\Users\deltagare\Documents\Visual Studio 2015\Projects\GitHub\SQL_EF_AS2\SQL_New\SQL_New\obj\Debug\SQL_New.dll
 C:\Users\deltagare\Documents\Visual Studio 2015\Projects\GitHub\SQL_EF_AS2\SQL_New\SQL_New\obj\Debug\SQL_New.pdb
-C:\Users\deltagare\Documents\Visual Studio 2015\Projects\GitHub\SQL_EF_AS2\SQL_New\SQL_New\obj\Debug\SQL_New.csprojResolveAssemblyReference.cache
