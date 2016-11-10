@@ -17,8 +17,7 @@ namespace SQL_New.Controllers
         // GET: Teachers
         public ActionResult Index()
         {
-            var teachers = db.Teachers.Include(t => t.Courses);
-            return View(teachers.ToList());
+            return View(db.Teachers.ToList());
         }
 
         // GET: Teachers/Details/5
@@ -39,7 +38,6 @@ namespace SQL_New.Controllers
         // GET: Teachers/Create
         public ActionResult Create()
         {
-            ViewBag.ID = new SelectList(db.Courses, "ID", "Name");
             return View();
         }
 
@@ -57,7 +55,6 @@ namespace SQL_New.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ID = new SelectList(db.Courses, "ID", "Name", teachers.ID);
             return View(teachers);
         }
 
@@ -73,7 +70,6 @@ namespace SQL_New.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.ID = new SelectList(db.Courses, "ID", "Name", teachers.ID);
             return View(teachers);
         }
 
@@ -90,7 +86,6 @@ namespace SQL_New.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ID = new SelectList(db.Courses, "ID", "Name", teachers.ID);
             return View(teachers);
         }
 

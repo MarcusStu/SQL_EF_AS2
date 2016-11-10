@@ -19,6 +19,9 @@ namespace SQL_New.Models
         // One course can have multiple assignments
         public virtual ICollection<Assignments> Assignments { get; set; }
         public virtual ICollection<Students> Students { get; set; }
+
+        [Required]
+
         public virtual ICollection<Teachers> Teachers { get; set; }
 
         //public int? StudentsID { get; set; }

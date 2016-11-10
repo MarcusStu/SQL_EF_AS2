@@ -20,6 +20,6 @@ namespace SQL_New.Models
         //public int CoursesID { get; set; }
 
         //[ForeignKey("CoursesID")]
-        public ICollection<Courses> Courses { get; set; }
+        public virtual ICollection<Courses> Courses { get; set; }
     }
 }
