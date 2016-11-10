@@ -19,7 +19,7 @@ namespace SQL_New.Models
         // One course can have multiple assignments
         public virtual ICollection<Assignments> Assignments { get; set; }
         public virtual ICollection<Students> Students { get; set; }
-        //public virtual ICollection<Teachers> Teachers { get; set; }
+        public virtual ICollection<Teachers> Teachers { get; set; }
 
         //public int? StudentsID { get; set; }
 
@@ -30,7 +30,7 @@ namespace SQL_New.Models
 
         ////[ForeignKey("AssignmentsID")]
         //public virtual Assignments Assignment { get; set; }
-        [ForeignKey("ID")]
-        public Teachers Teachers { get; set; }
-}
+        //[ForeignKey("ID")]
+        //public Teachers Teachers { get; set; }
+    }
 }

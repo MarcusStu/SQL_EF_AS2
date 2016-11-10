@@ -17,8 +17,7 @@ namespace SQL_New.Controllers
         // GET: Courses
         public ActionResult Index()
         {
-            var courses = db.Courses.Include(c => c.Teachers);
-            return View(courses.ToList());
+            return View(db.Courses.ToList());
         }
 
         // GET: Courses/Details/5
@@ -39,7 +38,6 @@ namespace SQL_New.Controllers
         // GET: Courses/Create
         public ActionResult Create()
         {
-            ViewBag.TeachersId = new SelectList(db.Teachers, "ID", "Name");
             return View();
         }
 
@@ -48,7 +46,7 @@ namespace SQL_New.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,TeachersId")] Courses courses)
+        public ActionResult Create([Bind(Include = "ID,Name")] Courses courses)
         {
             if (ModelState.IsValid)
             {
@@ -57,7 +55,6 @@ namespace SQL_New.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.TeachersId = new SelectList(db.Teachers, "ID", "Name", courses.Teachers.ID);
             return View(courses);
         }
 
@@ -73,7 +70,6 @@ namespace SQL_New.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.TeachersId = new SelectList(db.Teachers, "ID", "Name", courses.Teachers.ID);
             return View(courses);
         }
 
@@ -82,7 +78,7 @@ namespace SQL_New.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Name,TeachersId")] Courses courses)
+        public ActionResult Edit([Bind(Include = "ID,Name")] Courses courses)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +86,6 @@ namespace SQL_New.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.TeachersId = new SelectList(db.Teachers, "ID", "Name", courses.Teachers.ID);
             return View(courses);
         }
 
