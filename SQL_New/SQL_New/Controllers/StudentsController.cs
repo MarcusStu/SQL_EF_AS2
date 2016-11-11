@@ -17,6 +17,7 @@ namespace SQL_New.Controllers
         // GET: Students
         public ActionResult Index()
         {
+            var students = db.Students.Include(p => p.Courses);
             return View(db.Students.ToList());
         }
 
@@ -38,6 +39,7 @@ namespace SQL_New.Controllers
         // GET: Students/Create
         public ActionResult Create()
         {
+            ViewBag.CourseId = new SelectList(db.Courses, "Id", "Name");
             return View();
         }
 
@@ -46,7 +48,7 @@ namespace SQL_New.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name")] Student student)
+        public ActionResult Create([Bind(Include = "ID,Name,CourseId")] Student student)
         {
             if (ModelState.IsValid)
             {
@@ -54,7 +56,7 @@ namespace SQL_New.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            ViewBag.CourseId = new SelectList(db.Courses, "Id", "Name", student.CourseId);
             return View(student);
         }
 
@@ -70,6 +72,7 @@ namespace SQL_New.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.CourseId = new SelectList(db.Courses, "Id", "Name", student.CourseId);
             return View(student);
         }
 
@@ -86,6 +89,7 @@ namespace SQL_New.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.CourseId = new SelectList(db.Courses, "Id", "Name", student.CourseId);
             return View(student);
         }
 

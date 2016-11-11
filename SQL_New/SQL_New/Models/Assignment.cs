@@ -10,10 +10,11 @@ namespace SQL_New.Models
     public class Assignment
     {
         [Key]
-        public int ID { get; set; }
+        public int Id { get; set; }
 
         [Required]
         [MaxLength(50)]
+        [Display(Name = "Assignment Name")]
         public string Name { get; set; }
 
         //[ForeignKey("Students")]
@@ -25,7 +26,8 @@ namespace SQL_New.Models
         [Display(Name = "Course Name")]
         public int CoursesID { get; set; }
 
-        //[ForeignKey("CoursesID")]
+        public int? CourseId { get; set; }
+        
         public virtual Course Courses { get; set; }
     }
 }

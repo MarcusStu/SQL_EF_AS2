@@ -17,9 +17,9 @@ namespace SQL_New.Migrations
         {
             context.Students.AddOrUpdate(
               p => p.Name,
-              new Student { Name = "Marcus Sturedahl" },
-              new Student { Name = "Davis Davis" },
-              new Student { Name = "Nima Nimaa" }
+              new Student { Name = "Marcus Sturedahl", CourseId = 1 },
+              new Student { Name = "Davis Davis", CourseId = 2 },
+              new Student { Name = "Nima Nimaa", CourseId = 3 }
             );
 
             context.Teachers.AddOrUpdate(
@@ -31,6 +31,14 @@ namespace SQL_New.Migrations
               new Teacher { Name = "Test Testsson" }
             );
 
+            context.Courses.AddOrUpdate(
+              p => p.Name,
+              new Course { Name = "C# Fundamentals", TeacherId = 1 },
+              new Course { Name = "Databases", TeacherId = 2 },
+              new Course { Name = "WebSession", TeacherId = 3 },
+              new Course { Name = "WebDesign", TeacherId = 4 },
+              new Course { Name = "Math D", TeacherId = 5 }
+            );
         }
     }
 }

@@ -39,7 +39,7 @@ namespace SQL_New.Controllers
         // GET: Assignments/Create
         public ActionResult Create()
         {
-            ViewBag.CoursesID = new SelectList(db.Courses, "ID", "Name");
+            ViewBag.CoursesID = new SelectList(db.Courses, "Id", "Name");
             return View();
         }
 
@@ -48,7 +48,7 @@ namespace SQL_New.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,CoursesID")] Assignment assignment)
+        public ActionResult Create([Bind(Include = "Id,Name,CoursesID")] Assignment assignment)
         {
             if (ModelState.IsValid)
             {
@@ -57,7 +57,7 @@ namespace SQL_New.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CoursesID = new SelectList(db.Courses, "ID", "Name", assignment.CoursesID);
+            ViewBag.CoursesID = new SelectList(db.Courses, "Id", "Name", assignment.CoursesID);
             return View(assignment);
         }
 
@@ -73,7 +73,7 @@ namespace SQL_New.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.CoursesID = new SelectList(db.Courses, "ID", "Name", assignment.CoursesID);
+            ViewBag.CoursesID = new SelectList(db.Courses, "Id", "Name", assignment.CoursesID);
             return View(assignment);
         }
 

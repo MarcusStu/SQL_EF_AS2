@@ -7,17 +7,24 @@ using System.Web;
 
 namespace SQL_New.Models
 {
-    [Table("Students")]
     public class Student
     {
         [Key]
-        public int ID { get; set; }
+        public int Id { get; set; }
 
         [Required]
         [MaxLength(50)]
+        [Display(Name = "Student Name")]
         public string Name { get; set; }
 
+        // Assign student to course
+
+        public int? CourseId { get; set; }
+
+        //public virtual Course courses { get; set; }
+
         // One student can have multiple courses
-        public ICollection<Course> Courses { get; set; }
+
+        public virtual ICollection<Course> Courses { get; set; }
     }
 }

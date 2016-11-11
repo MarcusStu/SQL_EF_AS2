@@ -7,18 +7,18 @@ using System.Web;
 
 namespace SQL_New.Models
 {
-    [Table("Teachers")]
     public class Teacher
     {
         [Key]
-        public int ID { get; set; }
+        public int Id { get; set; }
 
         [Required]
         [MaxLength(50)]
+        [Display(Name = "Teacher Name")]
         public string Name { get; set; }
 
         // One teacher can have multiple courses
 
-        public virtual List<Course> Courses { get; set; }
+        public virtual ICollection<Course> Courses { get; set; }
     }
 }

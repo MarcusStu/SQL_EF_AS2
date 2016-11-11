@@ -10,14 +10,18 @@ namespace SQL_New.Models
     public class Course
     {
         [Key]
-        public int ID { get; set; }
+        public int Id { get; set; }
 
         [Required]
         [MaxLength(50)]
+        [Display(Name = "Course Name")]
         public string Name { get; set; }
 
+
+        public int? TeacherId { get; set; }
+
         // One course is required to have one teacher
-        public Teacher Teachers { get; set; }
+        public virtual Teacher Teacher { get; set; }
 
         // One course is required to have atleast one assignment
         public virtual ICollection<Assignment> Assignments { get; set; }
