@@ -28,12 +28,12 @@ namespace SQL_New.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Assignments assignments = db.Assignments.Find(id);
-            if (assignments == null)
+            Assignment assignment = db.Assignments.Find(id);
+            if (assignment == null)
             {
                 return HttpNotFound();
             }
-            return View(assignments);
+            return View(assignment);
         }
 
         // GET: Assignments/Create
@@ -48,17 +48,17 @@ namespace SQL_New.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,CoursesID")] Assignments assignments)
+        public ActionResult Create([Bind(Include = "ID,Name,CoursesID")] Assignment assignment)
         {
             if (ModelState.IsValid)
             {
-                db.Assignments.Add(assignments);
+                db.Assignments.Add(assignment);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CoursesID = new SelectList(db.Courses, "ID", "Name", assignments.CoursesID);
-            return View(assignments);
+            ViewBag.CoursesID = new SelectList(db.Courses, "ID", "Name", assignment.CoursesID);
+            return View(assignment);
         }
 
         // GET: Assignments/Edit/5
@@ -68,13 +68,13 @@ namespace SQL_New.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Assignments assignments = db.Assignments.Find(id);
-            if (assignments == null)
+            Assignment assignment = db.Assignments.Find(id);
+            if (assignment == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.CoursesID = new SelectList(db.Courses, "ID", "Name", assignments.CoursesID);
-            return View(assignments);
+            ViewBag.CoursesID = new SelectList(db.Courses, "ID", "Name", assignment.CoursesID);
+            return View(assignment);
         }
 
         // POST: Assignments/Edit/5
@@ -82,16 +82,16 @@ namespace SQL_New.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Name,CoursesID")] Assignments assignments)
+        public ActionResult Edit([Bind(Include = "ID,Name,CoursesID")] Assignment assignment)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(assignments).State = EntityState.Modified;
+                db.Entry(assignment).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.CoursesID = new SelectList(db.Courses, "ID", "Name", assignments.CoursesID);
-            return View(assignments);
+            ViewBag.CoursesID = new SelectList(db.Courses, "ID", "Name", assignment.CoursesID);
+            return View(assignment);
         }
 
         // GET: Assignments/Delete/5
@@ -101,12 +101,12 @@ namespace SQL_New.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Assignments assignments = db.Assignments.Find(id);
-            if (assignments == null)
+            Assignment assignment = db.Assignments.Find(id);
+            if (assignment == null)
             {
                 return HttpNotFound();
             }
-            return View(assignments);
+            return View(assignment);
         }
 
         // POST: Assignments/Delete/5
@@ -114,8 +114,8 @@ namespace SQL_New.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Assignments assignments = db.Assignments.Find(id);
-            db.Assignments.Remove(assignments);
+            Assignment assignment = db.Assignments.Find(id);
+            db.Assignments.Remove(assignment);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -7,7 +7,7 @@ using System.Web;
 
 namespace SQL_New.Models
 {
-    public class Assignments
+    public class Assignment
     {
         [Key]
         public int ID { get; set; }
@@ -26,6 +26,6 @@ namespace SQL_New.Models
         public int CoursesID { get; set; }
 
         //[ForeignKey("CoursesID")]
-        public virtual Courses Courses { get; set; }
+        public virtual Course Courses { get; set; }
     }
 }

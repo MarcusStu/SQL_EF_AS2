@@ -8,7 +8,7 @@ using System.Web;
 namespace SQL_New.Models
 {
     [Table("Students")]
-    public class Students
+    public class Student
     {
         [Key]
         public int ID { get; set; }
@@ -17,9 +17,7 @@ namespace SQL_New.Models
         [MaxLength(50)]
         public string Name { get; set; }
 
-        //public int CoursesID { get; set; }
-
-        ////[ForeignKey("CoursesID")]
-        public ICollection<Courses> Courses { get; set; }
+        // One student can have multiple courses
+        public ICollection<Course> Courses { get; set; }
     }
 }

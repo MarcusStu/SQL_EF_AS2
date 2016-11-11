@@ -17,6 +17,7 @@ namespace SQL_New.Controllers
         // GET: Courses
         public ActionResult Index()
         {
+            var courses = db.Courses.Include(p => p.Teachers);
             return View(db.Courses.ToList());
         }
 
@@ -27,17 +28,18 @@ namespace SQL_New.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Courses courses = db.Courses.Find(id);
-            if (courses == null)
+            Course course = db.Courses.Find(id);
+            if (course == null)
             {
                 return HttpNotFound();
             }
-            return View(courses);
+            return View(course);
         }
 
         // GET: Courses/Create
         public ActionResult Create()
         {
+            ViewBag.TeacherId = new SelectList(db.Teachers, "ID", "Name");
             return View();
         }
 
@@ -46,16 +48,16 @@ namespace SQL_New.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name")] Courses courses)
+        public ActionResult Create([Bind(Include = "ID,Name,TeacherId")] Course course)
         {
             if (ModelState.IsValid)
             {
-                db.Courses.Add(courses);
+                db.Courses.Add(course);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
-            return View(courses);
+            ViewBag.TeacherId = new SelectList(db.Teachers, "ID", "Name", course.Teachers);
+            return View(course);
         }
 
         // GET: Courses/Edit/5
@@ -65,12 +67,12 @@ namespace SQL_New.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Courses courses = db.Courses.Find(id);
-            if (courses == null)
+            Course course = db.Courses.Find(id);
+            if (course == null)
             {
                 return HttpNotFound();
             }
-            return View(courses);
+            return View(course);
         }
 
         // POST: Courses/Edit/5
@@ -78,15 +80,15 @@ namespace SQL_New.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Name")] Courses courses)
+        public ActionResult Edit([Bind(Include = "ID,Name")] Course course)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(courses).State = EntityState.Modified;
+                db.Entry(course).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(courses);
+            return View(course);
         }
 
         // GET: Courses/Delete/5
@@ -96,12 +98,12 @@ namespace SQL_New.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Courses courses = db.Courses.Find(id);
-            if (courses == null)
+            Course course = db.Courses.Find(id);
+            if (course == null)
             {
                 return HttpNotFound();
             }
-            return View(courses);
+            return View(course);
         }
 
         // POST: Courses/Delete/5
@@ -109,8 +111,8 @@ namespace SQL_New.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Courses courses = db.Courses.Find(id);
-            db.Courses.Remove(courses);
+            Course course = db.Courses.Find(id);
+            db.Courses.Remove(course);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

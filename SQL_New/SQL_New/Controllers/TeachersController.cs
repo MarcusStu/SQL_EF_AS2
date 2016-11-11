@@ -27,12 +27,12 @@ namespace SQL_New.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Teachers teachers = db.Teachers.Find(id);
-            if (teachers == null)
+            Teacher teacher = db.Teachers.Find(id);
+            if (teacher == null)
             {
                 return HttpNotFound();
             }
-            return View(teachers);
+            return View(teacher);
         }
 
         // GET: Teachers/Create
@@ -46,16 +46,16 @@ namespace SQL_New.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name")] Teachers teachers)
+        public ActionResult Create([Bind(Include = "ID,Name")] Teacher teacher)
         {
             if (ModelState.IsValid)
             {
-                db.Teachers.Add(teachers);
+                db.Teachers.Add(teacher);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(teachers);
+            return View(teacher);
         }
 
         // GET: Teachers/Edit/5
@@ -65,12 +65,12 @@ namespace SQL_New.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Teachers teachers = db.Teachers.Find(id);
-            if (teachers == null)
+            Teacher teacher = db.Teachers.Find(id);
+            if (teacher == null)
             {
                 return HttpNotFound();
             }
-            return View(teachers);
+            return View(teacher);
         }
 
         // POST: Teachers/Edit/5
@@ -78,15 +78,15 @@ namespace SQL_New.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Name")] Teachers teachers)
+        public ActionResult Edit([Bind(Include = "ID,Name")] Teacher teacher)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(teachers).State = EntityState.Modified;
+                db.Entry(teacher).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(teachers);
+            return View(teacher);
         }
 
         // GET: Teachers/Delete/5
@@ -96,12 +96,12 @@ namespace SQL_New.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Teachers teachers = db.Teachers.Find(id);
-            if (teachers == null)
+            Teacher teacher = db.Teachers.Find(id);
+            if (teacher == null)
             {
                 return HttpNotFound();
             }
-            return View(teachers);
+            return View(teacher);
         }
 
         // POST: Teachers/Delete/5
@@ -109,8 +109,8 @@ namespace SQL_New.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Teachers teachers = db.Teachers.Find(id);
-            db.Teachers.Remove(teachers);
+            Teacher teacher = db.Teachers.Find(id);
+            db.Teachers.Remove(teacher);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

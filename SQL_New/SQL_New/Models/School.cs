@@ -18,10 +18,10 @@
         {
         }
 
-        public DbSet<Students> Students { get; set; }
-        public DbSet<Teachers> Teachers { get; set; }
-        public DbSet<Courses> Courses { get; set; }
-        public DbSet<Assignments> Assignments { get; set; }
+        public DbSet<Student> Students { get; set; }
+        public DbSet<Teacher> Teachers { get; set; }
+        public DbSet<Course> Courses { get; set; }
+        public DbSet<Assignment> Assignments { get; set; }
 
         //public virtual DbSet<School> SchoolEntities { get; set; }
         // Add a DbSet for each entity type that you want to include in your model. For more information 
