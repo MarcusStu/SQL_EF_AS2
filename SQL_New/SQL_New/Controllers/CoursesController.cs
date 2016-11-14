@@ -33,6 +33,7 @@ namespace SQL_New.Controllers
             {
                 return HttpNotFound();
             }
+
             return View(course);
         }
 
@@ -81,7 +82,7 @@ namespace SQL_New.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Name")] Course course)
+        public ActionResult Edit([Bind(Include = "Id,Name,TeacherId")] Course course)
         {
             if (ModelState.IsValid)
             {
@@ -115,6 +116,27 @@ namespace SQL_New.Controllers
         {
             Course course = db.Courses.Find(id);
             db.Courses.Remove(course);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult AddStudents()
+        {
+            ViewBag.StudentId = new MultiSelectList(db.Students, "Id", "Name");
+            ViewBag.CourseId = new SelectList(db.Courses, "Id", "Name");
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddStudents(int StudentId, int CourseId)
+        {
+            Student student = db.Students.Find(StudentId);
+            Course course = db.Courses.Find(CourseId);
+
+            course.Students.Add(student);
+
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -20,5 +20,6 @@ namespace SQL_New.Models
         // One teacher can have multiple courses
 
         public virtual ICollection<Course> Courses { get; set; }
+        // List of assignments is possible here, because one teacher assigned to a course can manually add assignments to a course..
     }
 }

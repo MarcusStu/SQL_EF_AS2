@@ -1,4 +1,5 @@
-﻿@model SQL_New.Models.Teacher
+﻿@using SQL_New.Models
+@model Teacher
 
 @{
     ViewBag.Title = "Details";
@@ -19,8 +20,30 @@
         </dd>
 
     </dl>
+
+    @if (Model.Courses != null && Model.Courses.Count > 0)
+    {
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <td><b>Course Id</b></td>
+                    <td><b>Course Name</b></td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Course course in Model.Courses)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => course.Id)</td>
+                        <td>@Html.DisplayFor(modelItem => course.Name)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

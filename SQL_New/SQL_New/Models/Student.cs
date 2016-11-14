@@ -19,6 +19,7 @@ namespace SQL_New.Models
 
         // Assign student to course
 
+        [Display(Name = "Course Name")]
         public int? CourseId { get; set; }
 
         //public virtual Course courses { get; set; }

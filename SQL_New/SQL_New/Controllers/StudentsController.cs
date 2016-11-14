@@ -48,7 +48,7 @@ namespace SQL_New.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,CourseId")] Student student)
+        public ActionResult Create([Bind(Include = "Id,Name,CourseId")] Student student)
         {
             if (ModelState.IsValid)
             {
@@ -72,7 +72,7 @@ namespace SQL_New.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.CourseId = new SelectList(db.Courses, "Id", "Name", student.CourseId);
+            //ViewBag.CourseId = new SelectList(db.Courses, "Id", "Name", student.CourseId);
             return View(student);
         }
 
@@ -81,7 +81,7 @@ namespace SQL_New.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Name")] Student student)
+        public ActionResult Edit([Bind(Include = "Id,Name")] Student student)
         {
             if (ModelState.IsValid)
             {
@@ -89,7 +89,7 @@ namespace SQL_New.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.CourseId = new SelectList(db.Courses, "Id", "Name", student.CourseId);
+            //ViewBag.CourseId = new SelectList(db.Courses, "Id", "Name", student.CourseId);
             return View(student);
         }
 
@@ -127,5 +127,7 @@ namespace SQL_New.Controllers
             }
             base.Dispose(disposing);
         }
+
+
     }
 }

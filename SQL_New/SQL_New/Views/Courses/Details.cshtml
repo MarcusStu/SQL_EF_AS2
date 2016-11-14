@@ -28,25 +28,49 @@
         </dd>
 
     </dl>
-
-    @if (Model.Students != null && Model.Students.Count > 0)
-    {
-        <table class="table table-bordered table-striped">
-            <thead>
-                <tr>
-                    <td>Name</td>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (Student student in Model.Students)
+    <div class="row">
+        <div class="col-md-6">
+            @if (Model.Students != null && Model.Students.Count > 0)
+            {
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <td><b>Students in this Course</b></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (Student student in Model.Students)
                 {
-                    <tr>
-                        <td>@Html.DisplayFor(modelItem => student.Name)</td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    }
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => student.Name)</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+        </div>
+        <div class="col-md-6">
+            @if (Model.Assignments != null && Model.Assignments.Count > 0)
+            {
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <td><b>Assignments in this Course</b></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (Assignment assignment in Model.Assignments)
+                {
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => assignment.Name)</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+        </div>
+    </div>
+   
 
 </div>
 <p>
