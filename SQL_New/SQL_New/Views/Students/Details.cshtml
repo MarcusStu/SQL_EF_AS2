@@ -43,6 +43,31 @@
                     </tbody>
                 </table>
             </div>
+
+            @*Show Assignments here for student*@
+
+            <div class="col-md-6">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <td><b>All Course Assignments for this student</b></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (Course course in Model.Courses)
+                        {
+                            foreach (var assignment in course.Assignments)
+                            {
+                                <tr>
+                                    <td>@Html.DisplayFor(modelItem => assignment.Name)</td>
+                                </tr>
+                            }
+
+                        }
+                    </tbody>
+                </table>
+            </div>
+
         </div>
     }
 

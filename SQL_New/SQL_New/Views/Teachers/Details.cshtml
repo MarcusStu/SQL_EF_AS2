@@ -23,23 +23,51 @@
 
     @if (Model.Courses != null && Model.Courses.Count > 0)
     {
-        <table class="table table-bordered table-striped">
-            <thead>
-                <tr>
-                    <td><b>Course Id</b></td>
-                    <td><b>Course Name</b></td>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (Course course in Model.Courses)
-                {
-                    <tr>
-                        <td>@Html.DisplayFor(modelItem => course.Id)</td>
-                        <td>@Html.DisplayFor(modelItem => course.Name)</td>
-                    </tr>
-                }
-            </tbody>
-        </table>
+        <div class="row">
+
+            <div class="col-md-6">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <td><b>Course Id</b></td>
+                            <td><b>Course Name</b></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (Course course in Model.Courses)
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => course.Id)</td>
+                                <td>@Html.DisplayFor(modelItem => course.Name)</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-6">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <td><b>All Course Assignments bound for this teacher</b></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (Course course in Model.Courses)
+                            {
+                                foreach (var assignment in course.Assignments)
+                                {
+                                    <tr>
+                                        <td>@Html.DisplayFor(modelItem => assignment.Name)</td>
+                                    </tr>
+                                }
+
+                            }
+                        </tbody>
+                    </table>
+            </div>
+
+        </div>
+
     }
 
 </div>
