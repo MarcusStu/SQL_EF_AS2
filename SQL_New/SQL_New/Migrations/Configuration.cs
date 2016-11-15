@@ -25,7 +25,7 @@ namespace SQL_New.Migrations
             context.Teachers.AddOrUpdate(
               p => p.Name,
               new Teacher { Name = "Mike Ash" },
-              new Teacher { Name = "Kent Gudmundsen" },
+              new Teacher { Name = "Kent Gudmundsen"  },
               new Teacher { Name = "Anders Svensson" },
               new Teacher { Name = "Ulf Bengtsson" },
               new Teacher { Name = "Test Testsson" }
